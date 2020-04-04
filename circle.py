@@ -23,7 +23,7 @@ if __name__ == '__main__' :
         y = b + r * np.sin(theta)
         x = np.around(x, decimals=2)
         y = np.around(y, decimals=2)
-        c = [x,y]
+        c = [x,y] # can not get the right c like {[x1,y1],[x2,y2].....}
          
 
         print(c)
