@@ -44,11 +44,11 @@ def sort(a) :
             if (a[i][0] < a[j][0]) :
                 a[i], a[j] = a[j], a[i]
             if (a[i][1] > a[j][1]) :
-                a[i], a[j] = a[j], a[i]
-
-    for k in range(len(a)) :
-        b.append(a[k])
-    return b
+                a[i]= a[j]
+                b.append(a[i])
+    c = list(set(b))
+    c.sort(key=b.index)
+    return c
 
 
 if __name__ == '__main__' :
@@ -94,6 +94,8 @@ if __name__ == '__main__' :
             else :
                         s = test[n][2]
                         t = 1
-
-            z.append(s/t) 
+            
+            
+            z.append(s/t)
         print(z)
+
