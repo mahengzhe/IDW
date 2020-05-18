@@ -83,19 +83,15 @@ if __name__ == '__main__' :
         c=[(x[i],y[i]) for i in range(min(len(x),len(y)))]
         z=[]
         c=sort(c)
-        print(c)
-        for i in range(len(c)):
-            a=c[i][0]
-            b=c[i][1]
-            d=distance(a,b,test[n])
-            if d != 0 :
-                        s += (1 / float(d)) * test[n][2]  # s=z={∑[1/(d*d)]*z(i)}
-                        t += (1 / float(d))  # t=∑[1/(d*d)]
-            else :
-                        s = test[n][2]
-                        t = 1
-            
-            
-            z.append(s/t)
-        print(z)
+        print(a,b,c)
+        listx=[]
+        for n in range(len(c)):
 
+            c1=c[n][0]
+            c2=c[n][1]
+            while a<=c1:
+                a = round(a, 2)
+                listx.append((a,c2))
+                a=a+0.01
+
+            print(listx)
