@@ -5,7 +5,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-
+def distance(p1: float, p2: float, pi: float) :
+    dis = (p1 - pi[0]) * (p1 - pi[0]) + (p2 - pi[1]) * (p2 - pi[1])
+    m_result = math.sqrt(dis)
+    return m_result
 def distance(p1: float, p2: float, pi: float) :
     dis = (p1 - pi[0]) ** 2 + (p2 - pi[1]) ** 2
     m_result = math.sqrt(dis)
@@ -89,9 +92,30 @@ if __name__ == '__main__' :
 
             c1=c[n][0]
             c2=c[n][1]
-            while a<=c1:
+            while a<=c[n][0]:
                 a = round(a, 2)
-                listx.append((a,c2))
+                d=distance(a,c2,c[n])
+                d=round(d,4)
+                if d != 0 :
+                    s = s + (1 / (d * d)) * test[n][2]  # s=z={∑[1/(d*d)]*z(i)}
+                    t = t + (1 / (d * d))  # t=∑[1/(d*d)]
+                else :
+                    s = s + 0
+                    t = s + 0
+
+                if t != 0 :
+                   z = s / t  # z=s/t and load to the 2D array
+                else :
+                   z = 0
+                z=round(z,4)
+                listx.append((a,c2,z))
+                listx.append((-a,c2,z))
+                listx.append((-a, -c2, z))
+                listx.append((a, -c2, z))
+                listx.append((c2, a, z))
+                listx.append((-c2, a, z))
+                listx.append((-c2, -a, z))
+                listx.append((c2, -a, z))
                 a=a+0.01
 
             print(listx)
